@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Prueba_Yefrin.Models.Ventum>
+
+@{
+    ViewData["Title"] = "Ventas";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="display-6 text-primary">@ViewData["Title"]</h1>
+        <a class="btn btn-success shadow-sm" asp-action="Create">
+            <i class="bi bi-plus-circle"></i> Nueva Venta
+        </a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body table-responsive">
+            <table class="table table-hover table-striped align-middle">
+                <thead class="table-primary">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Fecha)</th>
+                        <th>@Html.DisplayNameFor(model => model.Total)</th>
+                        <th>@Html.DisplayNameFor(model => model.CreadoEn)</th>
+                        <th>@Html.DisplayNameFor(model => model.ActualizadoEn)</th>
+                        <th>@Html.DisplayNameFor(model => model.IdClienteNavigation)</th>
+                        <th>@Html.DisplayNameFor(model => model.Usuario)</th>
+                        <th class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Fecha)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Total)</td>
+                            <td>@Html.DisplayFor(modelItem => item.CreadoEn)</td>
+                            <td>@Html.DisplayFor(modelItem => item.ActualizadoEn)</td>
+                            <td>@Html.DisplayFor(modelItem => item.IdClienteNavigation.Nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Usuario.Username)</td>
+                            <td class="text-center">
+                                <a class="btn btn-sm btn-primary me-1" asp-action="Edit" asp-route-id="@item.IdVenta">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-info text-white me-1" asp-action="Details" asp-route-id="@item.IdVenta">
+                                    <i class="bi bi-eye"></i> Details
+                                </a>
+                                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.IdVenta">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+<style>
+    .card {
+        border-radius: 15px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+</style>
