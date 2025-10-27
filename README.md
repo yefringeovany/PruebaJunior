@@ -35,6 +35,29 @@ Permite administrar información de manera segura, con operaciones CRUD para emp
   - Control de acceso basado en roles (`Admin` y `Operador`).
 
 ---
+## Inicio de sesión y autorización basada en roles
+
+### Implementación
+- Se implementó **autenticación y autorización usando ASP.NET Core Identity**.
+- Los usuarios se autentican mediante **correo electrónico o nombre de usuario y contraseña**.
+- El acceso a funcionalidades críticas está controlado mediante **roles**:
+  - `Admin`: acceso completo a todas las funcionalidades.
+  - `Operador`: acceso limitado a operaciones básicas (por ejemplo, solo consultar registros o registrar ventas).
+
+### Flujo de inicio de sesión
+1. El usuario accede a la página de login.
+2. Ingresa sus credenciales (usuario/contraseña).
+3. Identity valida las credenciales y crea una **cookie de autenticación segura**.
+4. Según el rol del usuario, se habilitan o restringen determinadas vistas y acciones.
+
+### Autorización
+- Se utiliza el atributo `[Authorize]` en los controladores y acciones:
+  ```csharp
+  [Authorize(Roles = "Admin")]
+  public IActionResult Administracion()
+  {
+      return View();
+  }
 
 ## Requisitos
 - .NET 7 SDK o superior  
