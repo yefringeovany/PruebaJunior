@@ -72,5 +72,14 @@ Permite administrar información de manera segura, con operaciones CRUD para emp
 ```bash
 git clone https://github.com/usuario/proyecto-prueba.git
 
+## Reflexión personal
+
+A mi punto de vista, **.NET Core con Entity Framework** es un framework muy específico y potente para el desarrollo de aplicaciones web y manejo de bases de datos. Este proyecto representó un gran desafío para mí, ya que no había trabajado extensamente con estos lenguajes y tecnologías.  
+
+Sin embargo, logré comprender y aplicar los conceptos necesarios para desarrollar la solución planteada, alcanzando los objetivos mínimos requeridos, pero con un entendimiento sólido de cada parte del proceso.  
+
+Estoy totalmente dispuesto a seguir aprendiendo y profundizando en este mundo de C#, y me comprometo a esforzarme para mejorar continuamente mis habilidades en esta tecnología.
+
+
 
 
